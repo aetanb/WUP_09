@@ -123,8 +123,37 @@ By using the provided data in the graph above, I am able to identify the best 2 
 
 ## Roach
 
+```{r}
+Roach <- filter(fish, Species == "Roach")
+Roach <- select(Roach, -Species) 
+```
+
+
 ### Best Models
 
+```{r}
+Roachmodel1 <- lm(Weight~ .,data=Roach)
+summary.lm(Roachmodel1)
+```
+
 ### Best Two regressor model
+
+```{r}
+library(leaps)
+Roachmodelautomate <-
+   regsubsets(Weight ~ .,
+               data = Roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.roach <- summary(Roachmodelautomate)
+as.data.frame(summary.roach$outmat)
+library(car)
+subsets(Roachmodelautomate,statistic="adjr2",legend="bottomleft",main="Adjusted R^2")
+```
+
+By using the provided data regarding "roach", I am able to identify the different element regression models compared. The absolute best element regression model for roach is length 3 and width however, the best one element regression model is width. 
 
 ## Final Summary Statements
