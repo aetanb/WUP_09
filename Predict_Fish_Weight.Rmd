@@ -83,9 +83,23 @@ as.data.frame(summary.perch$outmat)
 library(car)
 subsets(Perchmodelautomate,statistic="adjr2",legend="bottom",main="Adjusted R^2")
 ```
+
+Using the provided graph above, I found the best single element regression model ,which is height, best 2 element regression model (Height and Width), and I was also able to get the best 3,4 and 5 elements regression models. Statistically, I judged the element regression models by referring to the adjusted R square values. 
+
 ## Pike
 
+```{r}
+Pike <- filter(fish, Species == "Pike")
+Pike <- select(Pike, -Species)
+```
+
+
 ### Best Models
+
+```{r}
+Pikemodel1 <- lm(Weight~ .,data=Pike)
+summary.lm(Pikemodel1)
+```
 
 ### Best Two regressor model
 
