@@ -157,3 +157,4 @@ subsets(Roachmodelautomate,statistic="adjr2",legend="bottomleft",main="Adjusted 
 By using the provided data regarding "roach", I am able to identify the different element regression models compared. The absolute best element regression model for roach is length 3 and width however, the best one element regression model is width. 
 
 ## Final Summary Statements
+In this assignment I identified which helper file I needed to use which was the "BestSubset-Regression" file. This file helped me understand the reasoning and purpose of the automated graph. To remove a dimension (width, length, height) to help me identify and compare the different element regression models. I was able to identify the best element regression models for all fish, roach, pike, and perch. 
